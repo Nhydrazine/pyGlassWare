@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="public/css/app.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script src="public/js/app.js"></script>
+  </head>
+<body>
+<div id="app">
+
+<div class="boxstrip-raised font font-header">
+  pyGlassWare Template
+</div>
+<div id="console" class="boxstrip-raised font">
+pyGlassWare app started.<br>
+</div>
+<button onclick="socket.emit('throughlog','message')">test</button>
+
+</div>
+</body>
+</html>
