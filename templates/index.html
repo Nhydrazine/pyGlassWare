@@ -4,16 +4,33 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <script src="public/js/app.js"></script>
   </head>
-<body>
+  <script>
+    var socket = io();
+    function begin() {
+      socket.emit('throughlog','Python connected.');
+    }
+  </script>
+<body onload="begin()">
 <div id="app">
 
 <div class="boxstrip-raised font font-header">
   pyGlassWare Template
 </div>
-<div id="console" class="boxstrip-raised font">
-pyGlassWare app started.<br>
+
+<div id="console">
 </div>
+<script>
+  console = new ConsoleWidget("console");
+  console.place("console");
+  console.appendStyles('buttonpanel', ['buttonpanel']);
+  console.appendStyles('body',['console-body']);
+  console.connect(socket);
+</script>
+
+
 <button onclick="socket.emit('throughlog','message')">test</button>
+
+
 
 </div>
 </body>

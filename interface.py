@@ -43,3 +43,34 @@ class interface(Namespace):
     def on_kill(self, message):
         print("GOT KILL");
         self.killswitch = True;
+
+    def on_timertest(self, data):
+        print("starting timer test");
+        # validate arguments ----------------------------------------
+        try: iterations = int(data['iterations']);
+        except:
+            emit('console', {
+                'command': 'log',
+                'arg': 'Invalid value for iterations argument',
+            });
+        try: delay = float(data['delay']);
+        except:
+            emit('console', {
+                'command': 'log',
+                'arg': 'Invalid value for delay argument',
+            });
+        # -----------------------------------------------------------
+        emit('console', {
+            'command': 'log',
+            'arg': (
+                "Beginning timer test, delay "+str(delay)+"s, "+
+                str(iterations)+" iterations."
+            )
+        });
+        for i in range(0, iterations):
+            emit('console', {
+                'command': 'log',
+                'arg': str(i)
+            });
+            print(i);
+            eventlet.sleep(delay);
