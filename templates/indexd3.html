@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <script src="public/js/d3.min.js"></script>
+</head>
+<body>
+  <svg id="canvas"
+    style="width: 500px; height: 500px; border: 1px solid #000000"></svg>
+<script>
+/* ************************************************************************** */
+  var data = [
+    {x:1, y:1},
+    {x:2, y:2},
+    {x:3, y:3},
+    {x:4, y:4},
+    {x:5, y:5},
+    {x:6, y:6},
+    {x:7, y:6},
+    {x:8, y:8},
+    {x:9, y:9},
+    {x:10, y:10},
+  ];
+  var canvas = d3.select("#canvas");
+  var circles = canvas.selectAll("circle").data(data);
+  // until circles are made, circles is an empty selection
+  // chaining to data method ties the circles to the data
+  circles.exit().remove();
+  circles.enter()
+    .append("circle")
+      .attr("r", 5)
+      .attr("cx", function(d) { return d.x*10; })
+      .attr("cy", function(d) { return d.y*10; })
+    .merge(circles)
+      .attr("fill","blue");
+d3.select("body").transition()
+    .style("background-color", "black");    // merge combines the new circle selection of "enter" with
+    // existing circles that are already part of the circles selection
+/* ************************************************************************** */
+</script>
+</body>
+</html>

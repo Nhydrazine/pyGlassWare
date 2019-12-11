@@ -11,7 +11,7 @@ appInterface = interface('/');
 # root ------------------------------------------------------------------------#
 @app.route('/')
 def hello_world():
-    return render_template('index.html', **appInterface.templateVars);
+    return render_template('indexd3.html', **appInterface.templateVars);
 # static file paths (js/css) --------------------------------------------------#
 @app.route('/public/<path:path>')
 def send_static(path):

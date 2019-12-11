@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="public/css/app.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <script src="public/js/app.js"></script>
+    <script src="public/js/d3.js"></script>
   </head>
   <script>
     var socket = io();
@@ -11,8 +14,9 @@
     }
   </script>
 <body onload="begin()">
-<div id="app">
 
+
+<div id="app">
 <div class="boxstrip-raised font font-header">
   pyGlassWare Template
 </div>
@@ -26,6 +30,14 @@
   console.appendStyles('body',['console-body']);
   console.connect(socket);
 </script>
+
+
+<script>
+d3.select("console-body").append("div")
+    .text("Hello, world!");
+document.getElementById('console-buttonpanel').innerHTML += "hi there";
+</script>
+
 
 
 <button onclick="socket.emit('throughlog','message')">test</button>
