@@ -27,6 +27,12 @@ function ConsoleWidget(baseid) {
         iterations: 10,
       })
     ">Timer Test</button>
+    <button onclick="
+      ${this.baseid}.socket.emit('pandastest','')
+    ">Pandas</button>
+    <button onclick="
+      ${this.baseid}.socket.emit('numpyhistotest','')
+    ">Numpy Histogram</button>
   </div>
 </div>
 <!-- ####################################################################### -->
