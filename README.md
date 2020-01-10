@@ -1,5 +1,5 @@
 # pyGlassWare
-Framework for python/flask-socketio "GlassWare" apps that use browsers for graphical interface
+Framework for developing python applications that use HTML/CSS/javascript as a cross-platform graphical user interface - similar to Electron but without a 700MB overhead.
 
 # Folder Setup
 
@@ -26,7 +26,7 @@ Folder containing images for GUI page.
 
 # Executing a pyGlassWare project
 
-Activate the virtual environment and run.
+The executable prototype for this project is currently in development.
 
 
 
